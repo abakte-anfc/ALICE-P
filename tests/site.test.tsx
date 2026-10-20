@@ -1,26 +1,22 @@
 import React from 'react';
-import {renderToStaticMarkup} from 'react-dom/server';
-import {describe,it,expect} from 'vitest';
+import { renderToStaticMarkup } from 'react-dom/server';
+import { describe, it, expect } from 'vitest';
+import { readFileSync } from 'node:fs';
 import App from '../src/App';
-import {content} from '../src/content';
-describe('Projeto Frida',()=>{
- it('apresenta a nova marca sem reutilizar dados da Alice',()=>{
-  const html=renderToStaticMarkup(<App/>);
-  expect(html).toContain('Projeto Frida');
-  for(const old of ['Alice Vieira','10/12527','5591982336647','psialicevc','alice-vieira-foto','CLIPSI','Gestalt','Fritz Perls']) expect(html).not.toContain(old);
-  expect((html.match(/<h1[ >]/g)||[])).toHaveLength(1);
-  for(const p of [...content.bio,...content.approach]) expect(html).toContain(p);
+describe('Página pública',()=>{
+ it('mantém cada parágrafo obrigatório visível no HTML',()=>{
+ const html=renderToStaticMarkup(<App/>);
+ const source=readFileSync('CONTEUDO.md','utf8').split('## Notas de implementação')[0];
+ const paragraphs=source.split('\n\n').filter(p=>/^(Sou |Tenho |Possuo |Considero-me |Realizo |A Gestalt|Atendimentos |Processo de |“)/.test(p));
+ expect(paragraphs).toHaveLength(10);
+ for(const text of paragraphs) expect(html).toContain(text);
+ expect((html.match(/<h1[ >]/g)||[])).toHaveLength(1);
  });
- it('preserva navegação, cartões, FAQ e contato oficial sem confirmação fictícia',()=>{
-  const html=renderToStaticMarkup(<App/>);
-  for(const id of ['inicio','sobre','atendimentos','processo','contato','duvidas']) expect(html).toContain(`id="${id}"`);
-  expect(html).toContain(content.instagram);
-  expect(html).toContain(content.forms.adult);
-  expect(html).toContain(content.forms.child.replaceAll('&','&amp;'));
-  for(const person of content.team){expect(html).toContain(person.name);expect(html).toContain(person.crp);}
-  expect(content.team).toHaveLength(4);
-  expect((html.match(/<details>/g)||[])).toHaveLength(4);
-  expect(html).toContain('O contato não confirma uma reserva.');
-  expect(html).not.toContain('wa.me');
+ it('oferece contatos reais e mensagem específica para avaliação',()=>{
+ const html=renderToStaticMarkup(<App/>);
+ expect(html).toContain('https://wa.me/5591982336647?text=');
+ expect(html).toContain(encodeURIComponent('Olá, Alice! Gostaria de informações sobre o processo de avaliação psicológica para cirurgia bariátrica.'));
+ expect(html).toContain('https://www.instagram.com/psialicevc/');
+ expect(html).not.toContain('<form');
  });
 });
