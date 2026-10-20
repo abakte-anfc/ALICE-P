@@ -21,3 +21,9 @@ Resultados de navegador em frida-browser-results.json; capturas frida-390.png e 
 ## Limites
 
 Os formulários foram usados exatamente como enviados, sem envio de respostas de teste. Não foi possível ler o conteúdo externo pelo navegador de pesquisa. Não foram presumidos valores, endereço, modalidade ou disponibilidade. Não houve publicação.
+
+## Correção de sobreposição na abertura
+
+O indicador de rolagem passou de posição absoluta para o fluxo da seção, com intervalo de 40 px no celular e 48 px no desktop, além de 120 px reservados na base. A altura acompanha o conteúdo, sem depender de coordenadas fixas.
+
+Validação: `node tests/hero-layout-check.mjs` verificou 360, 390, 482, 768 e 1440 px, cada largura com fonte raiz de 16, 24 e 32 px. Os 15 cenários mantiveram o espaçamento, o indicador dentro da seção e a abertura sem overflow. Captura: `hero-scroll-cue-fixed.png`. TypeScript, build e dois testes Vitest passaram.

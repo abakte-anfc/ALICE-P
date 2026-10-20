@@ -112,3 +112,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline-color:#20191d
 .hero .scroll-cue{left:50%;transform:translateX(-50%);bottom:100px;width:max-content;max-width:calc(100% - 40px);gap:10px;line-height:1.5}
 .editorial h2 .star{display:block;width:100%;margin:20px 0 0;text-align:center;font-size:1.6rem;line-height:1}
 @media(prefers-reduced-motion:reduce){.hero .paper-one,.hero .paper-two{transform:none}}
+/* A indicação acompanha a altura real do conteúdo, inclusive com zoom e fontes ampliadas. */
+.hero{flex-direction:column;gap:48px;padding-bottom:120px}
+.hero-content{width:100%;flex:none}
+.hero .scroll-cue{position:relative;inset:auto;transform:none;flex:none;margin:0;align-self:center}
+@media(max-width:700px){.hero{gap:40px;padding-bottom:120px}}
