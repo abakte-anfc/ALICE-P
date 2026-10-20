@@ -1,4 +1,4 @@
-﻿# Projeto Frida
+# Projeto Frida
 
 Redesign institucional em React, TypeScript e Vite, implementado a partir de `../Redesign.md`.
 
@@ -31,3 +31,11 @@ O formulário infantil atende crianças de até 14 anos. O segundo formulário �
 O material anterior de Alice Vieira permanece apenas nos documentos históricos e no arquivo fonte da fotografia na raiz. A interface, os metadados e os arquivos públicos usam a identidade do Projeto Frida. Não publicar dados antigos desses documentos.
 
 Não foi realizada publicação automática. Detalhes de validação em `docs/REDESIGN-FRIDA.md`.
+
+## Prévia ao compartilhar links
+
+O HTML contém Open Graph e Twitter Card, com imagem JPEG de 1200 × 630 px em `public/projeto-frida-social.jpg`. Os metadados são entregues no HTML inicial, sem depender do React.
+
+Defina `SITE_URL` com o endereço público final do site, por exemplo `https://seu-dominio.com`, nas variáveis de ambiente do deploy. O endereço padrão confirmado é `https://projeto-frida.vercel.app`. URLs temporárias de preview não substituem esse domínio. A configuração está em `vite.config.mjs`.
+
+Após o build, `node tests/social-preview-check.mjs` verifica os metadados e a presença da imagem. A prévia só pode ser validada nos aplicativos após a publicação; alguns aplicativos mantêm versões anteriores em cache.
