@@ -1,0 +1,74 @@
+[
+  {
+    "width": 360,
+    "reducedMotion": "no-preference",
+    "overflow": false,
+    "contact": true,
+    "menu": true,
+    "faq": true,
+    "card": true
+  },
+  {
+    "width": 360,
+    "reducedMotion": "reduce",
+    "overflow": false,
+    "contact": true,
+    "menu": true,
+    "faq": true,
+    "card": true
+  },
+  {
+    "width": 390,
+    "reducedMotion": "no-preference",
+    "overflow": false,
+    "contact": true,
+    "menu": true,
+    "faq": true,
+    "card": true
+  },
+  {
+    "width": 390,
+    "reducedMotion": "reduce",
+    "overflow": false,
+    "contact": true,
+    "menu": true,
+    "faq": true,
+    "card": true
+  },
+  {
+    "width": 768,
+    "reducedMotion": "no-preference",
+    "overflow": false,
+    "contact": true,
+    "menu": true,
+    "faq": true,
+    "card": true
+  },
+  {
+    "width": 768,
+    "reducedMotion": "reduce",
+    "overflow": false,
+    "contact": true,
+    "menu": true,
+    "faq": true,
+    "card": true
+  },
+  {
+    "width": 1440,
+    "reducedMotion": "no-preference",
+    "overflow": false,
+    "contact": true,
+    "menu": true,
+    "faq": true,
+    "card": true
+  },
+  {
+    "width": 1440,
+    "reducedMotion": "reduce",
+    "overflow": false,
+    "contact": true,
+    "menu": true,
+    "faq": true,
+    "card": true
+  }
+]

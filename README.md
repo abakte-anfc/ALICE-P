@@ -1,24 +1,33 @@
-# Alice Vieira — site institucional
+﻿# Projeto Frida
 
-Implementação própria em React, TypeScript e Vite, autorizada após a indisponibilidade do registro do template. Não utiliza o código compilado nem os assets externos da referência.
+Redesign institucional em React, TypeScript e Vite, implementado a partir de `../Redesign.md`.
 
-## Rodar
+## Desenvolvimento
 
 ```sh
-npm install
-npm run dev -- --port 5173
+npm ci
+npm run dev
 ```
 
-Endereço: http://localhost:5173
-
-## Verificações
+## Verificação
 
 ```sh
-npm test
 npm run build
+npm test
 node tests/browser-check.mjs
 ```
 
-O teste de navegador usa o Chromium local indicado no script; ajustar executablePath em outro computador. Textos e contatos: src/content.ts. Cores e composição: src/styles.css. Componentes: src/App.tsx. Foto original preservada na raiz e copiada em public. Fontes de sistema, sem downloads externos.
+O teste de navegador usa a aplicação em `http://localhost:5173`. Defina `SITE_URL` para usar outra porta e instale o Chromium do Playwright caso necessário.
 
-Sem publicação automática, analytics, formulários ou confirmação fictícia de agendamento.
+## Conteúdo e identidade
+
+- `src/content.ts`: equipe, CRPs, formulários oficiais, textos e Instagram.
+- `src/styles.css`: tokens de cores, composição editorial, responsividade e movimento reduzido.
+- `public/projeto-frida-logo.jpg`: logo original fornecida pelo usuário.
+- `src/App.tsx`: navegação, capítulos, cartões, perguntas e chamadas para contato.
+
+O formulário infantil atende crianças de até 14 anos. O segundo formulário é destinado a adolescentes e adultos. Os links abrem os formulários externos; o site não coleta respostas nem confirma agendamentos.
+
+O material anterior de Alice Vieira permanece apenas nos documentos históricos e no arquivo fonte da fotografia na raiz. A interface, os metadados e os arquivos públicos usam a identidade do Projeto Frida. Não publicar dados antigos desses documentos.
+
+Não foi realizada publicação automática. Detalhes de validação em `docs/REDESIGN-FRIDA.md`.
